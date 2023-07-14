@@ -86,7 +86,7 @@ func (store *Store) TranferTx(ctx context.Context, arg TransferTxParams) (Transf
 		}
 
 		if arg.FromAccountID < arg.ToAccountID {
-			result.FromAccount, result.FromAccount, err = addMoney(ctx, q, arg.FromAccountID, -arg.Ammount, arg.ToAccountID, arg.Ammount)
+			result.FromAccount, result.ToAccount, err = addMoney(ctx, q, arg.FromAccountID, -arg.Ammount, arg.ToAccountID, arg.Ammount)
 		} else {
 			result.ToAccount, result.FromAccount, err = addMoney(ctx, q, arg.ToAccountID, arg.Ammount, arg.FromAccountID, -arg.Ammount)
 		}
